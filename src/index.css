@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+/* ── Scrollbar global ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4ade80;
+}
+
+/* ── Sidebar scrollbar (más fina) ── */
+.sidebar-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+/* ── Sidebar mobile slide-in ── */
+@keyframes sidebarSlideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes sidebarSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+}
+
+.sidebar-slide-enter {
+  animation: sidebarSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sidebar-slide-exit {
+  animation: sidebarSlideOut 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ── Sidebar overlay fade ── */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes overlayFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.sidebar-overlay-enter {
+  animation: overlayFadeIn 0.25s ease-out forwards;
+}
+
+.sidebar-overlay-exit {
+  animation: overlayFadeOut 0.2s ease-in forwards;
+}
+
+/* ── Sidebar active link indicator ── */
+.sidebar-link-active {
+  position: relative;
+}
+
+.sidebar-link-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: #22c55e;
+  border-radius: 0 3px 3px 0;
+  animation: indicatorGrow 0.3s ease-out;
+}
+
+@keyframes indicatorGrow {
+  from {
+    height: 0%;
+    opacity: 0;
+  }
+  to {
+    height: 60%;
+    opacity: 1;
+  }
+}
+
+/* ── Header fade-in desde arriba ── */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+/* ── Toast slide desde la derecha ── */
+@keyframes toastSlide {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-toast-slide {
+  animation: toastSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Scroll reveal para secciones ── */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-on-scroll.revealed {
+  animation: revealUp 0.5s ease-out forwards;
+}
+
+/* ── Cards stagger reveal ── */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-reveal {
+  opacity: 0;
+}
+
+.card-reveal.revealed {
+  animation: cardReveal 0.4s ease-out forwards;
+}
+
+/* ── Back to Top fade-in ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.3s ease-out;
+}
