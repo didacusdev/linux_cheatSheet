@@ -5,7 +5,7 @@ import babel from '@rolldown/plugin-babel'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './', // <- Define la URL base para la aplicación (http:localhost:5173/ o en producción http://example.com/)
+  base: '/linux_cheatSheet/', // <- Ruta base del repo en GitHub Pages (https://didacusdev.github.io/linux_cheatSheet/)
   
   resolve: { // <- resolve le dice a Vite cómo resolver los módulos importados en el código.
     alias: {
